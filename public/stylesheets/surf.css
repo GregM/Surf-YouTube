@@ -1,0 +1,8 @@
+body {text-align:center; margin:0 auto;}
+div#wrapper {width:720px; text-align:left; margin:0 auto;}
+div#header {padding:20px; text-align:center; font-size:40px;}
+div#instructions {padding-bottom:20px; padding-right:50px; padding-left:50px;}
+div#content {text-align:center;}
+div#socialButtons {padding-top:15px;}
+div#footer {margin-top:25px; font-size:12px; text-align:center;}
+div#now_playing, div#previously_playing {padding-left:50px;}
