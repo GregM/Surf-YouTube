@@ -13,7 +13,7 @@ var c = 0;
  
 // This function is called when an error is thrown by the player
 function onPlayerError(errorCode) {
-  //loadNewVideo(videos);
+  alert("An error occured of type:" + errorCode);
 }
 
 function playVideo() {
@@ -39,8 +39,6 @@ function getList() {
     url: the_url,
     dataType: "jsonp",
     success: function(responseData, textStatus, XMLHttpRequest) {
-//        if (responseData.data.items) {
-//            loadNewVideo(responseData.data.items);
           if (responseData.feed.entry) {
               loadNewVideo(responseData.feed.entry);
         }
@@ -67,19 +65,12 @@ function loadNewVideo(videos) {
 	  document.getElementById('now_playing').innerHTML = 'Now Playing: <a href="'+videos[0].link[0].href+'">'+videos[0].title.$t+'</a>';
 	
 	for (n=1;n<51;n=n+1) {
-//	  setTimeout("playThisVideo(videos[n].id.$t.split('videos/')[1]);", 2000*n);
-//	playThisVideo('6FA-ewgO63A');
-
-//	  setTimeout("ytplayer.loadVideoById('"+videos[n].id.$t.split('videos/')[1]+"');document.getElementById('now_playing').innerHTML = \"Now: <a href=\"'+\"\'<%videos[n].link[0].href%>\'\"+'>abc</a>';", n*20000);
-//	  setTimeout('document.getElementById(\'now_playing\').innerHTML = "<a href="+videos[n].link[0].href+">abc</a>";', n*3000);
 	  setTimeout("document.getElementById('now_playing').innerHTML = '<a href=\"'+videos[n].link[0].href+'\">abc</a>';", n*3000);
 	}
 }
 
 function playThisVideo(videoId) {
 	ytplayer.loadVideoById(videoId);
-//	document.getElementById('now_playing').innerHTML = 'Now Playing: <a href=&quot;'+videoLink+'&quot;>'+videoTitle+'</a>';
-//    document.getElementById('previously_playing').innerHTML = 'Previously: <a href=&quot;'+previousVideoLink+'&quot;>'+previousVideoTitle+'</a>';
 }
 
 google.setOnLoadCallback(getList);
